@@ -1,0 +1,57 @@
+# Maven
+
+target/
+ 
+# Logs
+
+*.log
+ 
+# Directorios de configuración de IDEs
+
+.idea/
+
+*.iml
+ 
+# Archivos de Eclipse
+
+.project
+
+.classpath
+
+.settings/
+ 
+# Archivos de NetBeans
+
+nbproject/
+ 
+# Archivos de IntelliJ IDEA
+
+*.iws
+
+*.iml
+
+*.ipr
+ 
+# Archivos generados por el sistema operativo
+
+.DS_Store
+
+Thumbs.db
+ 
+# Archivos de Maven Wrapper (si los usas)
+
+.mvn/wrapper/
+ 
+# Archivos de dependencias descargadas (si no usas el cache local)
+
+repository/
+ 
+# Archivos de configuración de Maven
+
+*.jar
+
+*.war
+
+*.ear
+
+ 
