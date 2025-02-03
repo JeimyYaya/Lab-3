@@ -38,13 +38,7 @@ nbproject/
 
 Thumbs.db
  
-# Archivos de Maven Wrapper (si los usas)
 
-.mvn/wrapper/
- 
-# Archivos de dependencias descargadas (si no usas el cache local)
-
-repository/
  
 # Archivos de configuración de Maven
 
