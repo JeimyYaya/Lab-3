@@ -24,7 +24,7 @@ public class Book {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(String obj) {
         return isbn.equals(((Book)obj).isbn);
     }
 }
