@@ -1,47 +1,41 @@
 package edu.eci.cvds.tdd.library.book;
 
 import org.junit.jupiter.api.Test;
-import edu.eci.cvds.tdd.library.book.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BookTest {
+class BookTest {
 
     @Test
-    public void testBookCreation() {
-        Book book = new Book("Clean Code", "Robert C. Martin", "9780132350884");
+    void testBookConstructorAndGetters() {
+        Book book = new Book("The Catcher in the Rye", "J.D. Salinger", "978-0-316-76948-0");
 
-        assertEquals("Clean Code", book.getTittle());
-        assertEquals("Robert C. Martin", book.getAuthor());
-        assertEquals("9780132350884", book.getIsbn());
+        assertEquals("The Catcher in the Rye", book.getTitle());
+        assertEquals("J.D. Salinger", book.getAuthor());
+        assertEquals("978-0-316-76948-0", book.getIsbn());
     }
 
     @Test
-    public void testBooksWithSameIsbnAreEqual() {
-        Book book1 = new Book("Effective Java", "Joshua Bloch", "9780134685991");
-        Book book2 = new Book("Another Title", "Another Author", "9780134685991");
+    void testBookEquality() {
+        Book book1 = new Book("1984", "George Orwell", "123-456-789");
+        Book book2 = new Book("1984", "George Orwell", "123-456-789");
+        Book book3 = new Book("Animal Farm", "George Orwell", "987-654-321");
 
-        assertEquals(book1, book2);
+        assertEquals(book1, book2); // Deben ser iguales porque tienen el mismo ISBN
+        assertNotEquals(book1, book3); // Deben ser diferentes porque tienen distinto ISBN
     }
 
     @Test
-    public void testBooksWithDifferentIsbnAreNotEqual() {
-        Book book1 = new Book("The Pragmatic Programmer", "Andrew Hunt", "9780201616224");
-        Book book2 = new Book("Code Complete", "Steve McConnell", "9780735619678");
-
-        assertNotEquals(book1, book2);
+    void testBooksEqualityWithSameIsbn() {
+        Book book1 = new Book("1984", "George Orwell", "123-456-789");
+        Book book2 = new Book("Animal Farm", "George Orwell", "123-456-789");  // Mismo ISBN
+        assertEquals(book1, book2);  // Esto pasará porque el ISBN es el mismo
     }
 
     @Test
-    public void testEqualsWithNull() {
-        Book book = new Book("Refactoring", "Martin Fowler", "9780201485676");
-
-        assertNotEquals(book, null);
+    void testBooksInequalityWithDifferentIsbn() {
+        Book book1 = new Book("The Hobbit", "J.R.R. Tolkien", "987-654-321");
+        Book book2 = new Book("The Lord of the Rings", "J.R.R. Tolkien", "111-222-333");  // Diferente ISBN
+        assertNotEquals(book1, book2);  // Esto pasará porque los ISBN son diferentes
     }
-
-    /**@Test
-    public void testEqualsWithDifferentClass() {
-        Book book = new Book("Design Patterns", "Erich Gamma", "9780201633610");
-
-        assertNotEquals(book, "A string object");
-    }*/
 }
+

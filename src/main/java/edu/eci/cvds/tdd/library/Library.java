@@ -2,8 +2,10 @@ package edu.eci.cvds.tdd.library;
 
 import edu.eci.cvds.tdd.library.book.Book;
 import edu.eci.cvds.tdd.library.loan.Loan;
+import edu.eci.cvds.tdd.library.loan.LoanStatus;
 import edu.eci.cvds.tdd.library.user.User;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,8 +37,9 @@ public class Library {
      * @return true if the book was stored false otherwise.
      */
     public boolean addBook(Book book) {
-        //TODO Implement the logic to add a new book into the map.
-        return false;
+        if (book == null) return false;
+            books.put(book, books.getOrDefault(book, 0) + 1);
+            return true;
     }
 
     /**
@@ -53,8 +56,29 @@ public class Library {
      * @return The new created loan.
      */
     public Loan loanABook(String userId, String isbn) {
-        //TODO Implement the login of loan a book to a user based on the UserId and the isbn.
-        return null;
+        User user = users.stream().filter(u -> u.getId().equals(userId)).findFirst().orElse(null);
+        Book book = books.keySet().stream().filter(b -> b.getIsbn().equals(isbn)).findFirst().orElse(null);
+
+        if (user == null || book == null || books.get(book) <= 0) {
+            return null;
+        }
+
+    // Verificar que el usuario no tenga ya un préstamo del mismo libro
+        for (Loan loan : loans) {
+            if (loan.getUser().getId().equals(userId) && loan.getBook().getIsbn().equals(isbn) && loan.getStatus() == LoanStatus.ACTIVE) {
+                return null;
+            }
+        }
+
+    // Reducir la cantidad de libros y registrar el préstamo
+        books.put(book, books.get(book) - 1);
+        Loan loan = new Loan();
+        loan.setUser(user);
+        loan.setBook(book);
+        loan.setLoanDate(LocalDateTime.now());
+        loan.setStatus(LoanStatus.ACTIVE);
+        loans.add(loan);
+        return loan;
     }
 
     /**
@@ -67,8 +91,17 @@ public class Library {
      * @return the loan with the RETURNED status.
      */
     public Loan returnLoan(Loan loan) {
-        //TODO Implement the login of loan a book to a user based on the UserId and the isbn.
-        return null;
+        if (loan == null || !loans.contains(loan) || loan.getStatus() == LoanStatus.RETURNED) {
+            return null;
+        }
+    
+        loan.setStatus(LoanStatus.RETURNED);
+        loan.setReturnDate(LocalDateTime.now());
+    
+        // Incrementar el número de libros disponibles
+        books.put(loan.getBook(), books.getOrDefault(loan.getBook(), 0) + 1);
+    
+        return loan;
     }
 
     public boolean addUser(User user) {

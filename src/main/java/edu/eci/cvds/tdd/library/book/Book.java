@@ -1,18 +1,18 @@
 package edu.eci.cvds.tdd.library.book;
 
 public class Book {
-    private final String tittle;
+    private final String title;
     private final String author;
     private final String isbn;
 
-    public Book(String tittle, String author, String isbn) {
-        this.tittle = tittle;
+    public Book(String title, String author, String isbn) {
+        this.title = title;
         this.author = author;
         this.isbn = isbn;
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
     public String getAuthor() {
@@ -24,7 +24,7 @@ public class Book {
     }
 
     @Override
-    public boolean equals(String obj) {
+    public boolean equals(Object obj) {
         return isbn.equals(((Book)obj).isbn);
     }
 }
