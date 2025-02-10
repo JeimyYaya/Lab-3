@@ -69,3 +69,54 @@ Cree los siguientes paquetes dentro de edu.eci.cvds.tdd
    - user
 
  ![crear proyecto](Imagenes/esqueleto.png)
+
+## Pruebas UNITARIAS y TDD
+Para compilar el proyecto y ejecutar las pruebas unitarias, usen los siguientes comandos:
+
+```sh
+mvn clean test
+```
+## Aplicación de TDD
+Para implementar **TDD**, seguimos estos pasos:
+
+1. **Escribir una prueba unitaria fallida**: Crear una prueba para una funcionalidad aún no implementada.
+2. **Implementar la funcionalidad mínima**: Escribir el código necesario para que la prueba pase.
+3. **Refactorizar**: Mejorar el código sin cambiar su funcionalidad.
+4. **Repetir**: Continuar con el siguiente caso de prueba.
+
+
+## Cobertura
+Agregar la dependencia de jacoco, utilizar la última versión disponible en maven central.
+Para usar Jacoco es necesario agregar la siguiente sección en el pom.xml
+
+
+ ![crear proyecto](Imagenes/properties.png)
+
+
+ ![crear proyecto](Imagenes/jacoco.png)
+
+
+## SONARQUBE
+
+Para lo cual se debe descargar la imagen de docker con el siguiente comando
+
+```sh
+docker pull sonarqube
+```
+
+Ahora se debe arrancar el servicio de SonarQube con el siguiente comando:
+
+```sh
+ docker run -d --name sonarqube -e 
+SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest
+Validar funcionamiento docker ps -a
+```
+Validar funcionamiento: 
+
+```sh
+docker ps -a
+```
+
+ ![crear proyecto](Imagenes/sonarQube.png)
+
+ 
