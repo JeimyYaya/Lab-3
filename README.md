@@ -68,6 +68,11 @@ Para compilar el proyecto y ejecutar las pruebas unitarias, usen los siguientes 
 ```sh
 mvn clean test
 ```
+![crear proyecto](Imagenes/pLibrary.png)
+
+![crear proyecto](Imagenes/pruebas1.png)
+
+
 ## Aplicación de TDD
 Para implementar **TDD**, seguimos estos pasos:
 
@@ -75,6 +80,8 @@ Para implementar **TDD**, seguimos estos pasos:
 2. **Implementar la funcionalidad mínima**: Escribir el código necesario para que la prueba pase.
 3. **Refactorizar**: Mejorar el código sin cambiar su funcionalidad.
 4. **Repetir**: Continuar con el siguiente caso de prueba.
+
+
 
 
 ## Cobertura
@@ -124,6 +131,16 @@ Construya el proyecto, genere el reporte de JACOCO y corrija el cubrimiento de l
 
 ![crear proyecto](Imagenes/jacoco.png)
 ![crear proyecto](Imagenes/jacoco2.png)
+
+```sh
+mnv sonar:sonar
+```
+
+
+![crear proyecto](Imagenes/sonarFinal.png)
+
+Nos arroja que tenemos una cobertura total de 81.6% en los test
+
 
 ## Referencias
 - [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/)
