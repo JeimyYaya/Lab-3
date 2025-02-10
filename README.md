@@ -1,13 +1,5 @@
 # Laboratorio 3: Testing - TDD
 
-## Pre-requisitos
-Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
-
-- **Java**: OpenJDK Runtime Environment 17.x.x
-- **Apache Maven**: 3.9.x
-- **JUnit**: 5.x.x
-- **Docker**
-
 ## Objetivos
 En este laboratorio aprenderemos a:
 
@@ -119,4 +111,21 @@ docker ps -a
 
  ![crear proyecto](Imagenes/sonarQube.png)
 
- 
+ Añada el plugin de Sonar en el archivo pom del proyecto.
+
+![crear proyecto](Imagenes/plugin.png)
+
+Añada las propiedades de SonarQube y Jacoco.
+
+![crear proyecto](Imagenes/properties.png)
+
+Construya el proyecto, genere el reporte de JACOCO y corrija el cubrimiento de las pruebas de unidad para que su proyecto se construya adecuadamente.
+
+
+![crear proyecto](Imagenes/jacoco.png)
+![crear proyecto](Imagenes/jacoco2.png)
+
+## Referencias
+- [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/)
+- [Apache Maven Documentation](https://maven.apache.org/guides/index.html)
+- [Test-Driven Development (TDD) Guide](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
