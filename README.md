@@ -1,4 +1,8 @@
 # Laboratorio 3: Testing - TDD
+##
+Integrantes:
+- Alison Valderrama
+- Jeimy Yaya
 
 ## Objetivos
 En este laboratorio aprenderemos a:
